@@ -4,7 +4,8 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  margin: 0;
+  margin: auto;
+  max-width: 1200px;
   padding: 0;
 }
 
@@ -20,7 +21,7 @@ header {
 }
 
 .app-title {
-  color: #e24e42;
+  color: #e86e80;
   font: 2.5em  'Abril Fatface', cursive;
   margin-bottom: 0;
   text-align: center;
@@ -29,44 +30,79 @@ header {
 /* nav */
 .navList {
   display:flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 0;
+  list-style: none;
 }
 
 .navButton {
   border-radius: 10px;
-  color: #fff;
-  flex-basis: 30%;
+  display: flex;
+  flex-basis: 25%;
   font: bold  1em 'Source Sans Pro', sans-serif;
-  margin: 10px;
+  justify-content: center;
+  margin: 5px 5px 0 5px;
+  min-height: 50px;
   padding: 10px;
   text-align: center;
-  text-decoration: none;
-  max-width: 225px;
 }
 
-.unNav {
+.navlink {
+    align-self: center;
+    color: #fff;
+    text-decoration: none;
+}
+.unansNav,
+.unans {
   background-color: #e9b000;
 }
 
-.ansNav {
+.ansNav,
+.ans {
   background-color: #008f95;
 }
 
-.leadNav {
+.leadNav,
+.lead {
   background-color: #1a4863;
 }
 
-.newNav {
-  background-color: #51081f;
+.addNav,
+.add {
+  background-color: #e24e42;
 }
 .navButton:hover {
-  background-color: #e86e80;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .current {
   font-style: italic;
+}
+
+.qblock {
+  border-radius: 10px;
+  display:flex;
+  margin: 5px;
+}
+
+@media screen and (min-width: 45em) {
+
+  .navList {
+    flex-direction: row;
+  }
+
+  .navButton {
+    border-bottom-left-radius:0;
+    border-bottom-right-radius: 0;
+    flex-direction: row;
+  }
+
+  .qblock {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin: 0 5px;
+  }
+
 }
 
 @media screen and (min-width: 45em) {

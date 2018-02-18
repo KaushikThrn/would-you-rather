@@ -10,36 +10,53 @@ class App extends Component {
         </Link>
       </header>
       <nav className="navList">
-        <NavLink
-          to="/"
-          activeClassName="current"
-          className="unNav navButton">
-          Unanswered Questions
-        </NavLink>
-        <NavLink
-          to="/answered"
-          activeClassName="current"
-          className="ansNav navButton">
-          Answered Questions
-        </NavLink>
-        <NavLink
-          to="/leaderboard"
-          activeClassName="current"
-          className="leadNav navButton">
-          Leaderboard
-        </NavLink>
-        <NavLink
-          to="/add"
-          activeClassName="current"
-          className="newNav navButton">
-          Add Question
-        </NavLink>
+        <li className="unansNav navButton">
+          <NavLink
+            exact
+            to="/"
+            activeClassName="current"
+            className="navlink">
+            Unanswered Questions
+          </NavLink>
+        </li>
+        <li className="ansNav navButton">
+          <NavLink
+            to="/answered"
+            activeClassName="current"
+            className="navlink">
+            Answered Questions
+          </NavLink>
+        </li>
+        <li className="leadNav navButton">
+          <NavLink
+            to="/leaderboard"
+            activeClassName="current"
+            className="navlink">
+            Leaderboard
+          </NavLink>
+        </li>
+        <li className="addNav navButton">
+          <NavLink
+            to="/add"
+            activeClassName="current"
+            className="navlink">
+            Add Question
+          </NavLink>
+        </li>
       </nav>
       <Switch>
-        <Route exact="exact" path='/' render={(props) => (<h2>Unanswered</h2>)}/>
-        <Route path='/leaderboard' render={(props) => <h2>Leaderboard</h2>}/>
-        <Route path='/answered' render={(props) => (<h2>Answered</h2>)}/>
-        <Route path='/add' render={(props) => (<h2>Add Question</h2>)}/>
+        <Route exact path='/' render={(props) => (
+          <div className="unans qblock"><h2>Unanswered</h2></div>
+        )}/>
+        <Route path='/answered' render={(props) => (
+            <div className="ans qblock"><h2>Answered</h2></div>
+          )}/>
+        <Route path='/leaderboard' render={(props) =>(
+            <div className="lead qblock"><h2>Leaderboard</h2></div>
+          )}/>
+        <Route path='/add' render={(props) => (
+            <div className="add qblock"><h2>Add Question</h2></div>
+          )}/>
       </Switch>
     </div>)
   }
