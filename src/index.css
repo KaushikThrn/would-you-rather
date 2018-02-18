@@ -21,11 +21,65 @@ header {
 
 .app-title {
   color: #e24e42;
-  font: 3.5em  'Abril Fatface', cursive;
+  font: 2.5em  'Abril Fatface', cursive;
   margin-bottom: 0;
   text-align: center;
 }
+
+/* nav */
+.navList {
+  display:flex;
+  justify-content: center;
+  padding: 0;
 }
+
+.navButton {
+  border-radius: 10px;
+  color: #fff;
+  flex-basis: 30%;
+  font: bold  1em 'Source Sans Pro', sans-serif;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  max-width: 225px;
+}
+
+.unNav {
+  background-color: #e9b000;
+}
+
+.ansNav {
+  background-color: #008f95;
+}
+
+.leadNav {
+  background-color: #1a4863;
+}
+
+.newNav {
+  background-color: #51081f;
+}
+.navButton:hover {
+  background-color: #e86e80;
+  font-weight: bold;
+}
+
+.current {
+  font-style: italic;
+}
+
+@media screen and (min-width: 45em) {
+
+  .app-title {
+    font-size: 3.5em;
+  }
+
+  .navButton {
+    font-size: 1.25em;
+  }
+}
+
 /*
 papaya: #e24e42;
 mustard: #e9b000;
