@@ -35,6 +35,12 @@ class App extends Component {
           Add Question
         </NavLink>
       </nav>
+      <Switch>
+        <Route exact="exact" path='/' render={(props) => (<h2>Unanswered</h2>)}/>
+        <Route path='/leaderboard' render={(props) => <h2>Leaderboard</h2>}/>
+        <Route path='/answered' render={(props) => (<h2>Answered</h2>)}/>
+        <Route path='/add' render={(props) => (<h2>Add Question</h2>)}/>
+      </Switch>
     </div>)
   }
 }
