@@ -1,5 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
+
+/* header */
+header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.app-title {
+  color: #e24e42;
+  font: 3.5em  'Abril Fatface', cursive;
+  margin-bottom: 0;
+  text-align: center;
+}
+}
+/*
+papaya: #e24e42;
+mustard: #e9b000;
+blush: #e86e80
+aqua: #008f95;
+grayish: #8d8d8d;
+blueish: #1a4863;
+burgundy: #51081f;
+*/
