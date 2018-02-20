@@ -1,4 +1,16 @@
 import {combineReducers} from 'redux'
-import {} from '../actions'
+import { GET_QUESTIONS } from '../actions'
 
-export default combineReducers({})
+function questions(state = [], action) {
+  switch (action.type) {
+    case GET_QUESTIONS:
+      return action.questions
+
+    default:
+      return state
+
+  }
+}
+
+
+export default combineReducers({ questions })

@@ -85,6 +85,43 @@ header {
   margin: 5px;
 }
 
+/* question boxes */
+.questionList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.qbox {
+  background-color: #8d8d8d;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  width: 48%;
+}
+
+.qheader {
+  color: #eee;
+}
+.options {
+  display:flex;
+  justify-content: space-around;
+}
+
+.opt1,
+.opt2 {
+  background-color: #eee;
+  border-radius: 10px;
+  font: 1.5em  'Abril Fatface', cursive;
+  padding: 20px;
+  width: 45%
+}
+
+.opt1 {
+  background-color:
+}
+
 @media screen and (min-width: 45em) {
 
   .navList {

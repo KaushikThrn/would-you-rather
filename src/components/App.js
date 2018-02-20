@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link, NavLink, Route, Switch} from 'react-router-dom'
+import QuestionList from './QuestionList'
 
 class App extends Component {
   render() {
@@ -46,7 +47,9 @@ class App extends Component {
       </nav>
       <Switch>
         <Route exact path='/' render={(props) => (
-          <div className="unans qblock"><h2>Unanswered</h2></div>
+          <div className="unans qblock">
+            <QuestionList />
+        </div>
         )}/>
         <Route path='/answered' render={(props) => (
             <div className="ans qblock"><h2>Answered</h2></div>
