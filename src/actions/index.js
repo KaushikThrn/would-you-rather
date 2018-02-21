@@ -1,13 +1,9 @@
-import { _getQuestions } from '../utils/_data.js'
+import { _getQuestions,  _getUsers } from '../utils/_data.js'
 
 export const GET_QUESTIONS = 'GET_QUESTIONS'
+export const GET_USERS = 'GET_USERS'
 
-/* API request error handling */
-const showError = (error) =>
-  console.log('fetch failed: ' , error.statusText);
-
-
-// load posts
+// load questions
 const getQuestions = (questions) => {
   return {
     type: GET_QUESTIONS,
@@ -16,7 +12,6 @@ const getQuestions = (questions) => {
 }
 
 export const loadQuestions = () => {
-  console.log("Load")
   return dispatch => {
     _getQuestions()
       .then((response) => {
@@ -25,5 +20,20 @@ export const loadQuestions = () => {
         const questions = qIndices.map(index =>  response[index] )
         dispatch(getQuestions(questions))
       })
+  }
+}
+
+// load users
+const getUsers = (users) => {
+  return {
+    type: GET_USERS,
+    users
+  }
+}
+
+export const loadUsers = () => {
+  return dispatch => {
+    _getUsers()
+      .then((response) =>  dispatch(getUsers(response)))
   }
 }

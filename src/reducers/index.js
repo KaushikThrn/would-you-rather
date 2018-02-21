@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import { GET_QUESTIONS } from '../actions'
+import { GET_QUESTIONS, GET_USERS } from '../actions'
 
 function questions(state = [], action) {
   switch (action.type) {
@@ -12,5 +12,14 @@ function questions(state = [], action) {
   }
 }
 
+function users(state = {}, action) {
+  switch (action.type) {
+    case GET_USERS:
+      return action.users
 
-export default combineReducers({ questions })
+    default:
+      return state
+
+  }
+}
+export default combineReducers({ questions, users })
