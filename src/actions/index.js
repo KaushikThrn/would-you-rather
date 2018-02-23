@@ -13,13 +13,13 @@ const getQuestions = (questions) => {
 
 export const loadQuestions = () => {
   return dispatch => {
-    _getQuestions()
-      .then((response) => {
-        // convert questions to array
-        const qIndices = Object.keys(response)
-        const questions = qIndices.map(index =>  response[index] )
-        dispatch(getQuestions(questions))
-      })
+    return  _getQuestions()
+    .then((response) => {
+      // convert questions to array
+      const qIndices = Object.keys(response)
+      const questions = qIndices.map(index =>  response[index] )
+      dispatch(getQuestions(questions))
+    })
   }
 }
 
@@ -33,7 +33,7 @@ const getUsers = (users) => {
 
 export const loadUsers = () => {
   return dispatch => {
-    _getUsers()
-      .then((response) =>  dispatch(getUsers(response)))
+    return  _getUsers()
+    .then((response) =>  dispatch(getUsers(response)))
   }
 }

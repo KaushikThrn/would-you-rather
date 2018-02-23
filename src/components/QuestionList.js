@@ -8,19 +8,20 @@ class Questions extends Component {
 
   state = {
     questions: [],
-    users: {}
+    users: {},
+    user: null
   }
 
   componentDidMount() {
     this.props.getQuestions()
-    this.props.getUsers()
+    .then(this.props.getUsers())
   }
 
   render() {
 
-    const { questions, users } = this.props
+    const { questions, users, user } = this.props
 
-    return (
+ return (
       <section className="questionList">
         {
           Object.keys(users).length > 0 &&  questions.length > 0 ?
@@ -34,18 +35,18 @@ class Questions extends Component {
             No questions are available.  <br/>
             <em>Please ask a new question.</em>
           </div>}
-
-    </section>
+      </section>
     )
 
   }
 }
 
   const mapStateToProps = (state) => {
-  return {
-    questions: state.questions,
-    users: state.users
-  }
+    return {
+      questions: state.questions,
+      users: state.users,
+      user:  state.user
+    }
 
 }
 const mapDispatchToProps = (dispatch) => {
