@@ -31,8 +31,7 @@ TBD
 * [React Router Documentation](http://knowbody.github.io/react-router-docs/)
 * [React Training/React Router](https://reacttraining.com/react-router/web/api/BrowserRouter)
 * [React API](https://facebook.github.io/react/docs/react-api.html)
-* [Redux Form](https://redux-form.com/7.1.1/)
-* [CSS Tricks: Considerations for Styling a Modal](https://css-tricks.com/considerations-styling-modal/)
+* [Spinkit - Tobias Ahlin](http://tobiasahlin.com/spinkit/)
 
 ### Udacity Resources:
 * [Project Rubric](https://docs.google.com/document/d/1rPIT42aVZ_fe9v7vUn2d0pKPT0zPGRkxbzlcR2qPjOA/edit)

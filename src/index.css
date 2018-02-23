@@ -146,6 +146,51 @@ header {
   width: 100px;
 }
 
+/* loading indicator adapted from http://tobiasahlin.com/spinkit/ */
+.spinner {
+  margin: auto;
+  padding: 20% 0;
+  text-align: center;
+  width: 100px;
+}
+
+.spinner > div {
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  background-color: #e24e42;
+  border-radius: 100%;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+  background-color: #008f95;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  background-color: #1a4863;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
 @media screen and (min-width: 45em) {
 
   .app-title {
@@ -190,6 +235,7 @@ header {
 
 /*
 papaya: #e24e42;
+light-papaya: #f3b8b3
 mustard: #e9b000;
 blush: #e86e80
 aqua: #008f95;
