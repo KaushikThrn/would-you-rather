@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadQuestions, loadUsers } from '../actions'
+import { loadUser, loadQuestions, loadUsers } from '../actions'
 import { withRouter } from 'react-router-dom'
 import Question from './Question'
 import Spinner from './Spinner'
@@ -15,15 +15,37 @@ class Questions extends Component {
   }
 
   componentDidMount() {
-    this.props.getQuestions()
-    .then(this.props.getUsers())
-    .then( () => this.setState({loading:false}))
+    this.props.getCurrentUser()
+    .then( (response) => {
+      if (response.user) {
+        this.setState(user:user)
+        this.props.getQuestions()
+        .then(this.props.getUsers())
+        .then( () => this.setState({loading:false}))
+      } else {
+        this.props.getUsers()
+        .then( (users) => this.setState({users: users}))
+      }
+    })
   }
 
   render() {
 
     const { questions, users, user } = this.props
     const { loading } = this.state
+
+    if (!user) {
+      return (
+        <div>
+        { Object.keys(users).map((user) => (
+          <li key={users[user].id}>
+            {users[user].name}
+            <img src={users[user].avatarURL} alt={users[user].name} />
+          </li>
+        ))}
+        </div>
+      )
+    }
 
     if (loading) {
       return (
@@ -47,7 +69,6 @@ class Questions extends Component {
           </div>}
       </section>
     )
-
   }
 }
 
@@ -61,6 +82,7 @@ class Questions extends Component {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
+    getCurrentUser: () => dispatch(loadUser()),
     getQuestions: () => dispatch(loadQuestions()),
     getUsers: () => dispatch(loadUsers())
   }

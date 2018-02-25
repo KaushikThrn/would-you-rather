@@ -41,10 +41,10 @@ let users = {
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarah_edo',
+    author: 'fred_flintsone',
     timestamp: 1467166872634,
     optionOne: {
-      votes: ['sarah_edo'],
+      votes: ['fred_flintsone'],
       text: 'have horrible short term memory',
     },
     optionTwo: {
@@ -119,8 +119,16 @@ let questions = {
   },
 }
 
+let currentUser = null;
+
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
+
+export function _getCurrentUser () {
+  return new Promise((res, rej) => {
+    setTimeout(() => res(currentUser), 1000)
+  })
 }
 
 export function _getUsers () {
@@ -132,6 +140,16 @@ export function _getUsers () {
 export function _getQuestions () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...questions}), 1000)
+  })
+}
+
+export function _saveUser (user) {
+  return new Promise((res, rej) => {
+
+    setTimeout(() => {
+      currentUser = user
+      res(user)
+    }, 1000)
   })
 }
 
