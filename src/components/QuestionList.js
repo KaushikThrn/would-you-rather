@@ -4,10 +4,12 @@ import { loadUser, loadQuestions, loadUsers } from '../actions';
 import { withRouter } from 'react-router-dom';
 import Question from './Question';
 import Spinner from './Spinner';
+import UserModal from './UserModal';
 
 class Questions extends Component {
   state = {
     loading: true,
+    modalOpen: false,
     questions: [],
     users: {},
     user: null
@@ -16,36 +18,46 @@ class Questions extends Component {
   componentDidMount() {
     this.props.getCurrentUser().then(response => {
       if (response.user) {
-        this.setState((user: user));
         this.props
           .getQuestions()
           .then(this.props.getUsers())
           .then(() => this.setState({ loading: false }));
       } else {
-        this.props.getUsers().then(users => this.setState({ users: users }));
+        this.props
+          .getUsers()
+          .then(() => this.setState({ loading: false, modalOpen: true }));
       }
     });
+  }
+
+  openModal() {
+    this.setState({ modalOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
   }
 
   render() {
     const { questions, users, user } = this.props;
     const { loading } = this.state;
 
+    if (loading) {
+      return <Spinner />;
+    }
+
     if (!user) {
       return (
         <div className="chooser">
-          {Object.keys(users).map(user => (
-            <li key={users[user].id}>
-              {users[user].name}
-              <img src={users[user].avatarURL} alt={users[user].name} />
-            </li>
-          ))}
+          <div>
+            <UserModal
+              isOpen={this.state.modalOpen}
+              onClose={() => this.closeModal()}
+              users={users}
+            />
+          </div>
         </div>
       );
-    }
-
-    if (loading) {
-      return <Spinner />;
     }
 
     return (

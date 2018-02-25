@@ -119,7 +119,7 @@ let questions = {
   }
 };
 
-let currentUser = null;
+let currentUser = null; //users['wilma_flintstone'];
 
 function generateUID() {
   return (

@@ -83,6 +83,7 @@ header {
   border-radius: 10px;
   display: flex;
   margin: 5px;
+  min-height: 500px;
 }
 
 /* question boxes */
@@ -200,6 +201,81 @@ header {
   }
 }
 
+/* Chooser modal */
+.chooserOpen {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 600;
+}
+
+.chooserHeader {
+  background-color: #e24e42;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chooserTitle {
+  color: #fff;
+  font: 2rem 'Abril Fatface', cursive;
+  padding: 0 10px;
+  text-align: center;
+  width: 100%;
+}
+.modalClose {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  height: 50px;
+  margin: 10px 20px 0 0;
+  text-align: center;
+}
+
+.chooserBody {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.choice {
+  align-items: center;
+  display: flex;
+  margin: 0 20px;
+}
+
+.chooserImg {
+  width: 150px;
+}
+
+.chooserName {
+  font: 1rem 'Abril Fatface', cursive;
+  text-align: center;
+}
+.modalBackground {
+  background: #eee;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+}
+
+/* tabs become vertical */
 @media screen and (min-width: 45em) {
   .app-title {
     font-size: 3.5em;
@@ -229,6 +305,14 @@ header {
   .opt1,
   .opt2 {
     font-size: 1.25em;
+  }
+
+  .chooserBody {
+    flex-direction: row;
+  }
+
+  .choice {
+    flex-direction: column;
   }
 }
 
