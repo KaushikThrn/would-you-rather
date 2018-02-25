@@ -1,8 +1,12 @@
+import fred from '../images/fred-flintstone.png'
+import barney from '../images/barney-rubble.png'
+import wilma from '../images/wilma-flintstone.png'
+
 let users = {
-  sarah_edo: {
-    id: 'john_doe',
-    name: 'John Doe',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
+  fred_flintsone: {
+    id: 'fred_flintsone',
+    name: 'Fred Flinstone',
+    avatarURL: fred,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -11,20 +15,20 @@ let users = {
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
-  tylermcginnis: {
-    id: 'tylermcginnis',
-    name: 'Tyler McGinnis',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
+  barney_rubble: {
+    id: 'barney_rubble',
+    name: 'Barney Rubble',
+    avatarURL: barney,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
-  dan_abramov: {
-    id: 'ann_rivers',
-    name: 'Ann Rivers',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
+  wilma_flintstone: {
+    id: 'wilma_flintstone',
+    name: 'Wilma Flintstone',
+    avatarURL: wilma,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -50,66 +54,66 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
-    author: 'dan_abramov',
+    author: 'wilma_flintstone',
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['dan_abramov', 'sarah_edo'],
+      votes: ['wilma_flintstone', 'fred_flintsone'],
       text: 'become a supervillian'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
     id: 'am8ehyc8byjqgar0jgpub9',
-    author: 'sarah_edo',
+    author: 'fred_flintsone',
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: 'be telekinetic',
     },
     optionTwo: {
-      votes: ['sarah_edo'],
+      votes: ['fred_flintsone'],
       text: 'be telepathic'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
     id: 'loxhs1bqm25b708cmbf3g',
-    author: 'tylermcginnis',
+    author: 'barney_rubble',
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
       text: 'be a front-end developer',
     },
     optionTwo: {
-      votes: ['sarah_edo'],
+      votes: ['fred_flintsone'],
       text: 'be a back-end developer'
     }
   },
   "vthrdm985a262al8qx3do": {
     id: 'vthrdm985a262al8qx3do',
-    author: 'tylermcginnis',
+    author: 'barney_rubble',
     timestamp: 1489579767190,
     optionOne: {
-      votes: ['tylermcginnis'],
+      votes: ['barney_rubble'],
       text: 'find $50 yourself',
     },
     optionTwo: {
-      votes: ['dan_abramov'],
+      votes: ['wilma_flintstone'],
       text: 'have your best friend find $500'
     }
   },
   "xj352vofupe1dqz9emx13r": {
     id: 'xj352vofupe1dqz9emx13r',
-    author: 'dan_abramov',
+    author: 'wilma_flintstone',
     timestamp: 1493579767190,
     optionOne: {
-      votes: ['dan_abramov'],
+      votes: ['wilma_flintstone'],
       text: 'write JavaScript',
     },
     optionTwo: {
-      votes: ['tylermcginnis'],
+      votes: ['barney_rubble'],
       text: 'write Swift'
     }
   },
