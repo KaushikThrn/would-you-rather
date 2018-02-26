@@ -1,51 +1,76 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { saveUser, loadUsers } from '../actions';
+import Spinner from './Spinner';
 
 class UserModal extends Component {
-  static propTypes = {
-    users: PropTypes.object.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired
+  state = {
+    loading: true,
+    users: {},
+    currentUser: null
+  };
+
+  componentDidMount() {
+    this.props.getUsers().then(response => {
+      this.setState({ users: response.users, loading: false });
+    });
+  }
+
+  saveUser = (user, e) => {
+    this.props.setCurrentUser(user);
+    this.setState({ loading: true });
   };
 
   render() {
+    const { users, loading } = this.state;
     if (this.props.isOpen === false) return null;
-    const { users, onClose } = this.props;
 
     return (
       <div className={this.props.containerClassName}>
         <div className="chooserOpen">
           <div className="chooserHeader">
             <h1 className="chooserTitle">Who are you?</h1>
-            <div className="modalClose" onClick={onClose}>
-              x
-            </div>
           </div>
-          <ul className="chooserBody">
-            {Object.keys(users).map(user => (
-              <li className="choice" key={users[user].id}>
-                <img
-                  className="chooserImg"
-                  src={users[user].avatarURL}
-                  alt={users[user].name}
-                />
-                <h4 className="chooserName">{users[user].name}</h4>
-              </li>
-            ))}
-          </ul>
+
+          {loading ? (
+            <Spinner />
+          ) : (
+            <ul className="chooserBody">
+              {Object.keys(users).map(user => (
+                <li
+                  className="choice"
+                  key={users[user].id}
+                  onClick={e => this.saveUser(user, e)}
+                >
+                  <img
+                    className="chooserImg"
+                    src={users[user].avatarURL}
+                    alt={users[user].name}
+                  />
+                  <h4 className="chooserName">{users[user].name}</h4>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-        <div className="modalBackground" onClick={onClose} />
+        <div className="modalBackground" />
       </div>
     );
   }
-
-  close(e) {
-    e.preventDefault();
-
-    if (this.props.onClose) {
-      this.props.onClose();
-    }
-  }
 }
 
-export default UserModal;
+const mapStateToProps = state => {
+  return {
+    users: state.users,
+    currentUser: state.currentUser
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setCurrentUser: user => dispatch(saveUser(user)),
+    getUsers: () => dispatch(loadUsers())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserModal);

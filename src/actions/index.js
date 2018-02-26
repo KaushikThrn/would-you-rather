@@ -1,23 +1,44 @@
-import { _getCurrentUser, _getQuestions, _getUsers } from '../utils/_data.js';
+import {
+  _getCurrentUser,
+  _getQuestions,
+  _getUsers,
+  _saveUser
+} from '../utils/_data.js';
 
 export const GET_USER = 'GET_USER';
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const GET_USERS = 'GET_USERS';
+export const SAVE_USER = 'SAVE_USER';
 
 // load currentUser
-const getUser = user => {
+const getUser = currentUser => {
   return {
     type: GET_USER,
-    user
+    currentUser
   };
 };
 
 export const loadUser = () => {
   return dispatch => {
-    return _getCurrentUser().then(response => dispatch(getUser(response)));
+    return _getCurrentUser().then(currentUser =>
+      dispatch(getUser(currentUser))
+    );
   };
 };
 
+// set current user
+const setCurrentUser = currentUser => {
+  return {
+    type: SAVE_USER,
+    currentUser
+  };
+};
+
+export const saveUser = user => {
+  return dispatch => {
+    return _saveUser(user).then(response => dispatch(setCurrentUser(response)));
+  };
+};
 // load questions
 const getQuestions = questions => {
   return {

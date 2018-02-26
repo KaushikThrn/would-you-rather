@@ -207,8 +207,8 @@ header {
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
-  position: absolute;
   left: 50%;
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 600;
@@ -252,18 +252,30 @@ header {
 
 .choice {
   align-items: center;
+  border-radius: 10px;
   display: flex;
-  margin: 0 20px;
+  margin: 10px 20px;
+}
+
+.choice:hover {
+  background-color: #8d8d8d;
+}
+
+.choice:active {
+  background-color: #e24e42;
 }
 
 .chooserImg {
+  margin: 10px;
   width: 150px;
 }
 
 .chooserName {
   font: 1rem 'Abril Fatface', cursive;
+  margin: 0 10px 10px;
   text-align: center;
 }
+
 .modalBackground {
   background: #eee;
   background: rgba(0, 0, 0, 0.3);

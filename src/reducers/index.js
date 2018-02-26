@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
-import { GET_USER, GET_QUESTIONS, GET_USERS } from '../actions';
+import { GET_USER, GET_QUESTIONS, GET_USERS, SAVE_USER } from '../actions';
 
-function user(state = null, action) {
+function currentUser(state = null, action) {
   switch (action.type) {
     case GET_USER:
-      return action.user;
+      return action.currentUser;
+
+    case SAVE_USER:
+      return action.currentUser;
 
     default:
       return state;
@@ -29,4 +32,4 @@ function users(state = {}, action) {
       return state;
   }
 }
-export default combineReducers({ user, questions, users });
+export default combineReducers({ currentUser, questions, users });

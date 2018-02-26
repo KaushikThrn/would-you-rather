@@ -9,23 +9,21 @@ import UserModal from './UserModal';
 class Questions extends Component {
   state = {
     loading: true,
-    modalOpen: false,
     questions: [],
     users: {},
-    user: null
+    currentUser: null
   };
 
   componentDidMount() {
-    this.props.getCurrentUser().then(response => {
+    const { getCurrentUser, getQuestions, getUsers } = this.props;
+    getCurrentUser().then(response => {
       if (response.user) {
-        this.props
-          .getQuestions()
-          .then(this.props.getUsers())
+        getQuestions()
+          .then(getUsers())
           .then(() => this.setState({ loading: false }));
       } else {
-        this.props
-          .getUsers()
-          .then(() => this.setState({ loading: false, modalOpen: true }));
+        this.setState({ loading: false, modalOpen: true });
+        getQuestions().then(() => this.setState({ loading: false }));
       }
     });
   }
@@ -34,27 +32,19 @@ class Questions extends Component {
     this.setState({ modalOpen: true });
   }
 
-  closeModal() {
-    this.setState({ modalOpen: false });
-  }
-
   render() {
-    const { questions, users, user } = this.props;
+    const { questions, users, currentUser } = this.props;
     const { loading } = this.state;
 
     if (loading) {
       return <Spinner />;
     }
 
-    if (!user) {
+    if (!currentUser) {
       return (
         <div className="chooser">
           <div>
-            <UserModal
-              isOpen={this.state.modalOpen}
-              onClose={() => this.closeModal()}
-              users={users}
-            />
+            <UserModal />
           </div>
         </div>
       );
@@ -85,9 +75,10 @@ const mapStateToProps = state => {
   return {
     questions: state.questions,
     users: state.users,
-    user: state.user
+    currentUser: state.currentUser
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     getCurrentUser: () => dispatch(loadUser()),
