@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { saveUser, loadUsers } from '../actions';
 import Spinner from './Spinner';
 
-class UserModal extends Component {
+class ChooseUser extends Component {
   state = {
     loading: true,
     users: {},
@@ -17,6 +17,7 @@ class UserModal extends Component {
   }
 
   saveUser = (user, e) => {
+    console.log(user);
     this.props.setCurrentUser(user);
     this.setState({ loading: true });
   };
@@ -40,7 +41,7 @@ class UserModal extends Component {
                 <li
                   className="choice"
                   key={users[user].id}
-                  onClick={e => this.saveUser(user, e)}
+                  onClick={e => this.saveUser(users[user], e)}
                 >
                   <img
                     className="chooserImg"
@@ -73,4 +74,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserModal);
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseUser);

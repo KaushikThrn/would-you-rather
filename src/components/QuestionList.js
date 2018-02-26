@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadUser, loadQuestions, loadUsers } from '../actions';
-import { withRouter } from 'react-router-dom';
 import Question from './Question';
 import Spinner from './Spinner';
-import UserModal from './UserModal';
+import ChooseUser from './ChooseUser';
 
 class Questions extends Component {
   state = {
@@ -44,7 +43,7 @@ class Questions extends Component {
       return (
         <div className="chooser">
           <div>
-            <UserModal />
+            <ChooseUser />
           </div>
         </div>
       );
@@ -87,6 +86,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Questions)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(Questions);
