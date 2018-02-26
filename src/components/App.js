@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, NavLink, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import Routes from './Routes';

@@ -5,7 +5,7 @@ import wilma from '../images/wilma-flintstone.png';
 let users = {
   fred_flintsone: {
     id: 'fred_flintsone',
-    name: 'Fred Flinstone',
+    name: 'Fred Flintstone',
     avatarURL: fred,
     answers: {
       '8xf0y6ziyjabvozdd253nd': 'optionOne',

@@ -13,7 +13,9 @@ body {
 header {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  min-height: 125px;
 }
 
 .home-link {
@@ -23,8 +25,19 @@ header {
 .app-title {
   color: #e86e80;
   font: 2.5em 'Abril Fatface', cursive;
-  margin-bottom: 0;
+  margin: 0;
   text-align: center;
+}
+
+.user {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  margin-right: 10px;
+}
+
+.userImg {
+  width: 35px;
 }
 
 /* nav */
@@ -231,6 +244,7 @@ header {
   text-align: center;
   width: 100%;
 }
+
 .modalClose {
   color: #fff;
   font-size: 30px;
@@ -266,8 +280,8 @@ header {
 }
 
 .chooserImg {
-  margin: 10px;
-  width: 150px;
+  margin: 5px;
+  width: 100px;
 }
 
 .chooserName {
@@ -325,6 +339,11 @@ header {
 
   .choice {
     flex-direction: column;
+  }
+
+  .chooserImg {
+    margin: 10px;
+    width: 150px;
   }
 }
 
