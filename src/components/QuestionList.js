@@ -15,20 +15,19 @@ class Questions extends Component {
 
   componentDidMount() {
     const { getCurrentUser, getQuestions, getUsers } = this.props;
+
+    // retrieve cyrrent user
     getCurrentUser().then(response => {
+      // if user exists, load questions and user
       if (response.user) {
         getQuestions()
           .then(getUsers())
           .then(() => this.setState({ loading: false }));
       } else {
-        this.setState({ loading: false, modalOpen: true });
+        this.setState({ loading: false });
         getQuestions().then(() => this.setState({ loading: false }));
       }
     });
-  }
-
-  openModal() {
-    this.setState({ modalOpen: true });
   }
 
   render() {
@@ -40,13 +39,7 @@ class Questions extends Component {
     }
 
     if (!currentUser) {
-      return (
-        <div className="chooser">
-          <div>
-            <ChooseUser />
-          </div>
-        </div>
-      );
+      return <ChooseUser />;
     }
 
     return (

@@ -27,7 +27,7 @@ class ChooseUser extends Component {
     if (this.props.isOpen === false) return null;
 
     return (
-      <div className={this.props.containerClassName}>
+      <div className="chooser">
         <div className="chooserOpen">
           <div className="chooserHeader">
             <h1 className="chooserTitle">Who are you?</h1>
